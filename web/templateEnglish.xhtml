@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./../resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css"  href="./../resources/css/style.css" />
+        <script type="text/javascript" src="./../resources/js/boxOver.js"></script>
+        <script type="text/javascript" src="./../resources/js/bootstrap.js"></script>
+    </h:head>
+
+    <h:body>
+        <h:outputStylesheet library="css" name="style.css"/>
+        <h:form>
+            <div id="main_container">
+                <div class="top_bar">
+                    <div class="top_search">
+                        <div class="search_text"><a href="#">Search Product</a></div>
+                        <h:inputText class="search_input"/>
+                        <input type="image" src="./../resources/./../resources/images/search.gif" class="search_bt"/>
+                    </div>
+
+                    <div class="languages">
+                        <div class="lang_text">Language:</div>
+                        <a href="index.xhtml" class="lang"><img src="./../resources/images/br.gif" alt="" title="" border="0" /></a>
+                        <a href="indexEnglish.xhtml" class="lang"><img src="./../resources/images/en.gif" alt="" title="" border="0" /></a>       
+                    </div>
+
+                </div>
+
+                <div id="header">
+
+                    <div id="logo">
+                        <img src="resources/images/logo_novo.png" alt="" width="250" height="250"/>
+                    </div>
+
+                    <div class="oferte_content">
+                        <div class="top_divider"><img src="./../resources/images/header_divider.png" alt="" title="" width="1" height="164" /></div>
+                        <div class="oferta">
+                            <div class="oferta_content">
+                                <h2><font color="white">Welcome to shopping site MilkWay !</font></h2>
+                                <h3><font color="white">Sing-up <a href="login.xhtml">Login</a> or <a href="cadastroCliente.xhtml">Register</a></font></h3>
+                                <div class="oferta_details">
+                                    
+                                    <div class="oferta_title">
+                                        
+                                    </div>
+                                    <div class="oferta_text">
+                                                                          
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oferta_pagination">
+                            </div>        
+
+                        </div>
+
+                        <div class="top_divider"><img src="./../resources/images/header_divider.png" alt="" title="" width="1" height="164" /></div>
+
+                    </div> 
+
+
+                </div>
+
+                <div id="main_content"> 
+
+
+
+                    <div id="menu_tab">
+                        <div class="left_menu_corner"></div>
+                        <ul class="menu">
+                             <li><a href="index.xhtml" class="nav1">Home</a></li>
+                            <li class="divider"></li>
+                            <li><a href="formasDePagamento.xhtml" class="nav2">Payment Methods</a></li>
+                            <li class="divider"></li>
+                            <li><a href="contato.xhtml" class="nav3">Contact</a></li>
+                            <li class="divider"></li>                   
+                            <li><a href="compraSegura.xhtml" class="nav4">Secure Shopping</a></li>
+                            <li class="divider"></li>
+                            <li><a href="quemSomosNos.xhtml" class="nav5">About Us</a></li>
+                            <li class="divider"></li>
+                            <li><a href="login.xhtml" class="nav6">Login</a></li>
+                            <li class="divider"></li>    
+
+                        </ul>
+
+                        <div class="right_menu_corner"></div>
+                    </div><!-- end of menu tab -->
+
+
+
+
+                    <div class="left_content">
+                        <div class="title_box">Categories</div>
+                        <ul class="left_menu">
+                            <p:growl autoUpdate="true"/> 
+                            <p:panelMenu>
+                                <p:submenu label="Biscoitos">
+                                    <p:menuitem value="Água e Sal" icon="ui-icon-cart"/>
+                                    <p:menuitem value="Cream Cracker"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Diet e Light"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Doces"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Especiais"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Recheados"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Salgados"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Torradas"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Wafers"  icon="ui-icon-cart" />
+                                    <p:menuitem value="Bolachas"   icon="ui-icon-cart" action="recheadoTrakinas.xhtml"/> 
+                                </p:submenu>
+                                <p:submenu label="Bomboniere">
+                                    <p:menuitem value="Balas e Cia"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Bombons"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Chocolates"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Diet e Light"  icon="ui-icon-cart" />
+                                    <p:menuitem value="Gomas de Mascar"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Importados"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Pão de Mel"   icon="ui-icon-cart" />
+                                </p:submenu>
+                                <p:separator />
+                                <p:submenu label="Mercearia Doce" >
+                                    <p:menuitem value="Achocolatado"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Alimentos Infantis Doces"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Gelatinas e Cia"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Ingredientes Doces"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Ceriais Matinais e Barras"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Geléias"   icon="ui-icon-cart" />
+                                    <p:menuitem value="Diet e Light"   icon="ui-icon-cart" />
+                                </p:submenu>
+                            </p:panelMenu>
+                        </ul> 
+                    </div>
+
+
+                    <div class="center_content">
+                        <ui:insert name="body">
+
+                        </ui:insert>
+                    </div>
+
+                    <div class="right_content">
+
+
+                        <div class="shopping_cart">
+                            <div class="cart_title">Carrinho</div>
+                            <div class="cart_details">
+                                0 items <br />
+                                <span class="border_cart"></span>
+                                Total: <span class="price">0$</span>
+                            </div>
+
+                            <div class="cart_icon"><a href="carrinho.xhtml" title="header=[Checkout] body=[&nbsp;] fade=[on]"><img src="./../resources/images/shoppingcart.png" alt="" title="" width="48" height="48" border="0" /></a></div>
+
+                        </div>
+
+
+                        <div class="title_box">Offers</div>  
+                        <div class="border_box">
+                            <div class="product_title"><a href="details.html">Bolacha Trakinas</a></div>
+                            <div class="product_img"><a href="details.html"><img src="./../resources/images/recheadoTrakinas.jpg" alt="" title="" border="0" width="120" height="120"/></a></div>
+                            <div class="prod_price"><span class="reduce">2,00R$</span> <span class="price">1,89$</span></div>
+                        </div>  
+
+
+
+                        <div class="title_box">Oferta Relâmpago</div>
+                        <div class="border_box">
+                            <div class="product_title"><a href="details.html">Bolacha Trakinas</a></div>
+                            <div class="product_img"><a href="details.html"><img src="./../resources/images/recheadoTrakinas.jpg" alt="" title="" border="0" width="120" height="120"/></a></div>
+                            <div class="prod_price"><span class="reduce">2,00R$</span> <span class="price">1,89$</span></div>
+                        </div>        
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="footer">
+
+
+                    <div class="left_footer">
+                        <img src="./../resources/images/logo_novo.png" alt="" title="" width="170" height="49"/>
+                    </div>
+
+                    <div class="center_footer">
+                        MilkWay. All Rights Reserved 2015<br />                        
+                        <img src="./../resources/images/payment.gif" alt="" title="" />
+                    </div>
+
+                    <div class="right_footer">
+                        <a href="index.xhtml">Inicio</a>
+                        <a href="contato.xhtml">Contato</a>
+                        <a href="details.html">Dúvidas Frequentes</a>
+                        <a href="details.html">Lojas Físicas</a>
+                        <a href="details.html">Politica da Empresa</a>
+
+                    </div>   
+
+                </div>                 
+            </div>
+        </h:form>
+    </h:body>
+
+</html>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="templateAdmin.xhtml">
+
+        <ui:define name="body">
+            <h:form>
+                <p:accordionPanel multiple="true">
+                    <p:tab title="#{implementar}">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="resources/images/Produto.jpg" alt=""/>
+                                </td>
+                                <td>
+                                    <h:panelGrid columns="2">
+                                        <h:outputText value="A partir de " style="font-family: calibri;font-size: 20px;color: green" />
+                                        <h:outputText value="#{implementar}" style="font-family: calibri;font-size: 20px; color: green;">
+                                            <f:convertNumber type="currency" locale="pt_BR" maxFractionDigits="2" />
+                                        </h:outputText>
+                                    </h:panelGrid>
+                                    <br />
+                                    <p:commandButton value="Adicionar no Carrinho" action="#{implementar}" style="border-radius: 10px; font-family: calibri" ajax="false" icon="ui-icon-circle-plus"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </p:tab>
+                    <p:tab title="Descrição">
+                        <h:panelGrid columns="1">
+                            <h:outputText value="#{implementar}" escape="false" style="font-family: calibri;font-size: 20px"/>
+                        </h:panelGrid>
+                    </p:tab>
+                </p:accordionPanel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
+

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+
+    <ui:composition template="template.xhtml">
+        <ui:define name="body">        
+                <p:growl id="pagamentos" showDetail="true" />
+                <p:panel id="credito" header="Quem Somos Nós" footer="* MilkWay uma indústria brasileira !. " style="margin-bottom:20px">
+                    <h:panelGrid columns="1" cellpadding="10">
+                        <p:graphicImage name="/images/quemSomosNos.png" width="800" height="240" />
+                        A Industria de Alimentos MilkWay Ltda é especializada
+                        na produção e produtos alimenticios.
+                        Seus produtos são oferecidos ao mercado através do site eletrônico(e-commerce) e entregues para todo
+                        brasil.
+                        <br></br><br></br>
+                        A MilkWay atende tanto ao mercado atacadista, quanto ao varejista, fornecendo seus produtos para pequenos
+                        comércios e também diretamente ao consumidor final.
+                        <br></br><br></br>
+                        Devido a sua estratégia de crescimento e modernização, a MilkWay está empenhada na implementção de novas
+                        soluções tecnológicas que venham a contribuir para a expansão de seu mercado consumidor, afirmando ainda
+                        mais sua posição de destaque no segmento.
+                        <br></br>
+                        O sucesso da MilkWay é marcado pela constante preocupação em oferecer produtos 
+                        de qualidade, atendimento primoroso e uma agressiva política de preços baixos.
+                        <br></br>
+                        <br></br>
+                        <h:outputText value="MISSÃO:" styleClass="title2"/>
+                        Antecipar, atender e superar as expectativas e as necessidades de nossos clientes internos e externos,
+                        oferecendo produtos de qualidade, variedade, preço justo e atendimento diferenciado para criar e manter 
+                        uma relação de confiança.
+                        <br></br>
+                        <br></br>                   
+                        <h:outputText value="VISÃO:" styleClass="title2"/>
+                        Ser reconhecido e admirado por proporcionar aos seus consumidores uma experiência de compra diferenciada, 
+                        baseada em três pilares: qualidade, variedade e preço justo.
+                        <br></br>
+                        Ser reconhecido como o melhor grupo varejista do Brasil, com capital 100% nacional.
+                        <br></br>
+                        <br></br>
+                        <h:outputText value="VALORES:" styleClass="title2"/>
+                        - Integridade, ética e respeito a todo e qualquer indivíduo;
+                        <br></br>
+                        <br></br>
+                        - Comprometimento: busca permanente pela qualidade e excelência;
+                        <br></br>
+                        <br></br>
+                        - Cliente Satisfeito: Foco constante no atendimento; ouvir e responder todas as manifestações 
+                        dos seus consumidores;
+                        <br></br>
+                        <br></br>
+                        - Pessoas Motivadas: A MilkWay proporciona aos seus colaboradores oportunidades de crescimento profissional
+                        e incentiva a criatividade, a iniciativa e o trabalho em equipe.
+                        <br></br>
+                        <br></br>
+                        - Responsabilidade Socioambiental: A MilkWay interage com as pessoas e com o meio ambiente,
+                        de forma equilibrada, e estimula o reaproveitamento de recursos, além de promover ações de combate à fome.
+                    </h:panelGrid>
+                </p:panel>
+    </ui:define>
+</ui:composition>
+
+</html>
+

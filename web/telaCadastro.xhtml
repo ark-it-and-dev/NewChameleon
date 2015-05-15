@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="template.xhtml">
+        <ui:define name="body">
+            <table align="center" style="width: 100%">
+                <tr align="center">
+                    <td align="center" style="width: 50%">
+                        <br/>
+                        <h:outputText value="Cadastrar" style="font-size: 30px"/>
+                        <h:form>
+                            <br/>
+                            <br/>
+                            <h:panelGrid columns="3" id="existente">
+                                <a href="cadastroClienteFisico.xhtml"><img src="resources/images/PFISICA.jpg" alt="" width="200" height="200"/></a>
+                                   <a href="cadastroClienteJuridico.xhtml"><img src="resources/images/pessoajuridica.jpg" alt="" width="200" height="200"/></a>
+                            </h:panelGrid>
+                        </h:form>
+                    </td>
+                </tr>
+            </table>
+        </ui:define>
+    </ui:composition>
+</html>
+

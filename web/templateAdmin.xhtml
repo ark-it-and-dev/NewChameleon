@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./../resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css"  href="./../resources/css/style.css" />
+        <script type="text/javascript" src="./../resources/js/boxOver.js"></script>
+        <script type="text/javascript" src="./../resources/js/bootstrap.js"></script>
+    </h:head>
+
+    <h:body>
+        <h:outputStylesheet library="css" name="style.css"/>
+        <h:form>
+            <div id="main_container">
+                <div class="top_bar">
+                    <div class="top_search">
+                        <div class="search_text"><a href="#">Buscar Produto</a></div>
+                        <h:inputText class="search_input"/>
+                        <input type="image" src="./../resources/./../resources/images/search.gif" class="search_bt"/>
+                    </div>
+
+                    <div class="languages">
+                        <div class="lang_text">Idiomas:</div>
+                        <a href="#" class="lang"><img src="./../resources/images/br.gif" alt="" title="" border="0" /></a>
+                        <a href="#" class="lang"><img src="./../resources/images/en.gif" alt="" title="" border="0" /></a>       
+                    </div>
+
+                </div>
+
+                <div id="header">
+
+                    <div id="logo">
+                        <img src="resources/images/logo_novo.png" alt="" width="237" height="140"/>
+                    </div>
+
+                    <div class="oferte_content">
+                        <div class="top_divider"><img src="./../resources/images/header_divider.png" alt="" title="" width="1" height="164" /></div>
+
+                        <!-- 
+                         //////////////////////////////////////////////////
+                        //////////////////////////////////////////////////
+                        Primefaces ile urunler eklenecek PrimeFaces in carusel kullanilacak.
+                         //////////////////////////////////////////////////
+                         //////////////////////////////////////////////////
+                         //////////////////////////////////////////////////
+                        -->
+                        <div class="oferta">
+
+                            <div class="oferta_content">
+                                <img src="./../resources/images/recheadoTrakinas.png" width="94" height="92" border="0" class="oferta_img" />
+
+                                <div class="oferta_details">
+                                    <div class="oferta_title">Bolacha Recheada Trakinas</div>
+                                    <div class="oferta_text">
+                                        Trakinas o biscoito que é a sua cara, é a opção perfeita para qualquer momento do dia! Fonte de vitaminas, é energia pra galera toda.
+                                    </div>
+                                    <a href="details.html" class="details">details</a>
+                                </div>
+                            </div>
+                            <div class="oferta_pagination">
+
+                                <span class="current">1</span>
+                                <a href="#?page=2">2</a>
+                                <a href="#?page=3">3</a>
+                                <a href="#?page=3">4</a>
+                                <a href="#?page=3">5</a>  
+
+                            </div>        
+
+                        </div>
+
+                        <div class="top_divider"><img src="./../resources/images/header_divider.png" alt="" title="" width="1" height="164" /></div>
+
+                    </div> <!-- end of oferte_content-->
+
+
+                </div>
+
+                <div id="main_content"> 
+
+
+
+                    <div id="menu_tab">
+                        <div class="left_menu_corner"></div>
+                        <ul class="menu">
+                            <li><a href="admin.xhtml" class="nav1">Inicio</a></li>
+                            <li class="divider"></li>
+                            <li><a href="index.xhtml" class="nav2">Logout</a></li>
+                            <li class="divider"></li>
+
+                        </ul>
+
+                        <div class="right_menu_corner"></div>
+                    </div><!-- end of menu tab -->
+
+
+
+
+                    <div class="left_content">
+                        <div class="title_box">Administração</div>
+                        <ul class="left_menu">
+                            <p:growl autoUpdate="true"/> 
+                            <p:panelMenu>
+                                <p:submenu label="Área Admnistrativa">
+                                    <p:menuitem value="Adicionar Produto" icon="ui-icon-cart" action="adicionar.xhtml"/>
+                                    <p:menuitem value="Lista de Produtos"   icon="ui-icon-cart" action="produtos.xhtml"/>
+                                </p:submenu>
+                            </p:panelMenu>
+                        </ul> 
+                    </div>
+
+
+                    <div class="center_content">
+                        <ui:insert name="body">
+
+                        </ui:insert>
+                    </div>
+
+                    <div class="right_content">
+
+
+                        <div class="shopping_cart">
+                            <div class="cart_title">Carrinho</div>
+                            <div class="cart_details">
+                                3 items <br />
+                                <span class="border_cart"></span>
+                                Total: <span class="price">350$</span>
+                            </div>
+
+                            <div class="cart_icon"><a href="carrinho.xhtml" title="header=[Checkout] body=[&nbsp;] fade=[on]"><img src="./../resources/images/shoppingcart.png" alt="" title="" width="48" height="48" border="0" /></a></div>
+
+                        </div>
+
+
+                        <div class="title_box">Ofertas Imperdiveis</div>  
+                        <div class="border_box">
+                            <div class="product_title"><a href="details.html">Bolacha Trakinas</a></div>
+                            <div class="product_img"><a href="details.html"><img src="./../resources/images/recheadoTrakinas.jpg" alt="" title="" border="0" width="120" height="120"/></a></div>
+                            <div class="prod_price"><span class="reduce">2,00R$</span> <span class="price">1,89$</span></div>
+                        </div>  
+
+
+
+                        <div class="title_box">Oferta Relâmpago</div>
+                        <div class="border_box">
+                            <div class="product_title"><a href="details.html">Bolacha Trakinas</a></div>
+                            <div class="product_img"><a href="details.html"><img src="./../resources/images/recheadoTrakinas.jpg" alt="" title="" border="0" width="120" height="120"/></a></div>
+                            <div class="prod_price"><span class="reduce">2,00R$</span> <span class="price">1,89$</span></div>
+                        </div>        
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="footer">
+
+
+                    <div class="left_footer">
+                        <img src="./../resources/images/logo_novo.png" alt="" title="" width="170" height="49"/>
+                    </div>
+
+                    <div class="center_footer">
+                        MilkWay. All Rights Reserved 2015<br />                        
+                        <img src="./../resources/images/payment.gif" alt="" title="" />
+                    </div>
+
+                    <div class="right_footer">
+                        <a href="index.xhtml">Inicio</a>
+                        <a href="contato.xhtml">Contato</a>
+                        <a href="details.html">Dúvidas Frequentes</a>
+                        <a href="details.html">Lojas Físicas</a>
+                        <a href="details.html">Politica da Empresa</a>
+                    </div>   
+
+                </div>                 
+            </div>
+        </h:form>
+    </h:body>
+
+</html>

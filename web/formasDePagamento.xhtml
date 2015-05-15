@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+
+    <ui:composition template="template.xhtml">
+        <ui:define name="body">
+            <h:form>
+                <p:growl id="pagamentos" showDetail="true" />
+                <br/>
+                <br/>
+                <tr align="center" style="width: 50%">
+                    <td align="center" style="width: 50%">
+                <h:outputText value="Formas de Pagamento" styleClass="title2" />
+                </td>
+                </tr>
+                <br/>
+                <br/>
+                <p:panel id="credito" header="Cartão de Credito" footer="* Somente cartões emitidos em território brasileiro. " style="margin-bottom:20px">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage name="/images/forma_de_pagamento_cartao.jpg" />
+                        <h:outputText
+                            value="Aceitamos os cartões de crédito:  Mastercard, Diners, American Express e Visa. Parcelamos em 2 vezes sem juros nos cartões da bandeira Mastercard, Diners e American Express.
+
+                            O pagamento por cartão de crédito é totalmente seguro. Os dados do cartão do cliente são digitados diretamente no ambiente da operadora, não havendo trafego dos mesmos, entre a loja e a operadora. Dessa forma, o MilkWay Delivery não armazena nenhum tipo de informação de seus dados de cartão de crédito, sendo o mesmo procedimento adotado para qualquer uma das bandeiras aceitas.
+
+                            Caso haja qualquer divergência em seu pedido, efeuaremos um contato por telefone, ou através do e-mail cadastrado.
+
+                            O Prazo de Entrega de sua compra passa a ser considerado após a aprovação do seu pagamento junto á operadora." />
+                    </h:panelGrid>
+                </p:panel>
+                <p:panel id="debito" header="Débito em Conta" footer="*Aceitamos Apenas: Bradesco, Santader, Itaú e Banco do Brasil" style="margin-bottom:20px">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage name="/images/forma_de_pagamento_cartao_bradesco_itau.jpg" />
+                        <h:outputText
+                            value="Aceitamos: Bradesco, Santader, Itaú e Banco do Brasil.
+                            Para essas formas, é necessário possuir uma senha eletrônica que é fornecida pelo seu banco. Essa opção de pagamento é válida apenas para pagamentos à vista.
+
+                            Após a realização do pagamento o banco pode levar um prazo de até 3 (três) dias úteis para repas sar ao MilkWay Delivery a confirmação de pagamento. Desta forma, somente após a aprovação fornecida pelo banco é que entra em vigor seu Prazo de Entrega.
+
+                            A operação será realizada no ambiente do seu banco com total segurança." />
+                    </h:panelGrid>
+                </p:panel>
+                <p:panel id="boleto" header="Boleto Bancário" style="margin-bottom:20px">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage name="/images/forma_de_pagamento_boleto.jpg" />
+                        <h:outputText
+                            value="Pode ser pago em qualquer agência bancária.
+
+                            O Boleto Bancário é uma opção de pagamento para quem não tem ou não deseja utilizar as demais formas disponíveis no site.
+
+                            Pode ser pago em qualquer agência bancária ou pela Internet. Para utilizar esta opção, selecione (Boleto Bancário) na página de pagamento e não se esqueça de imprimir o boleto após a finalização do pedido.
+
+                            O Prazo de Vencimento do Boleto é de 2 (dois) dias úteis. Caso esta data expire, você deverá refazer a compra.
+
+                            O Prazo de entrega passa a valer somente após a confirmação do pagamento pela instituição  financeira. Esta confirmação é encaminhada automaticamente pelo banco no prazo de até 2 (dois) dias úteis.
+
+                            Ressaltamos que o pedido será entregue em até 48 horas após a confirmação do pagamento em nosso sistema." />
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+</html>
+

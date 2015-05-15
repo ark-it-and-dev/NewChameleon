@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="templateAdmin.xhtml">
+
+        <ui:define name="body" >
+            <h:form>
+                <p:dataTable  id="dt1" value="#{produtoBean.listaProdutos}" var="produto">
+                    <f:facet name="header">
+                        LISTA DE PRODUTOS
+                    </f:facet>
+
+                    <p:column>
+                        <f:facet name="header">
+                            Produto
+                        </f:facet>
+                        <h:outputText value="#{produto.nome}"/>
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            Descrição
+                        </f:facet>
+                        <h:outputText value="#{produto.descricao}"/>
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            Preço:
+                        </f:facet> 
+                        <h:outputText  value="#{produto.preco}"/>
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header"> 
+                            Marca:
+                        </f:facet>
+                        <h:outputText value="#{produto.marca}"/>
+                    </p:column>             
+                </p:dataTable>
+                <br/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

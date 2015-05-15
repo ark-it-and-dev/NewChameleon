@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="template.xhtml">
+        <ui:define name="body">
+            <table align="center" style="width: 100%">
+                <tr align="center">
+                    <td align="center" style="width: 50%">
+                        <br/>
+                        <h:outputText value="Login" styleClass="title2" />
+                        <h:form>
+                            <br/>
+                            <br/>
+                            <h:panelGrid columns="3" id="existente">
+                                <h:outputText value="Login:" styleClass="title1" />
+                                <h:inputText id="login" value="#{loginBean.login}" style="border-radius: 10px" required="true" requiredMessage="Digite o Email" />
+                                <h:message id="msgEmail" for="email" style="color: red" />
+                                
+                                <h:outputText value="Senha:" styleClass="title1"/>
+                                <h:inputSecret id="senha" value="#{loginBean.senha}" style="border-radius: 10px" required="true" requiredMessage="Digite a Senha" />
+                                <h:message id="msgSenha" for="senha" style="color: red" />
+                            </h:panelGrid>
+                            <p:commandButton value="Logar" action="templateLogado.xhtml" style="border-radius: 10px; font-family: calibri" ajax="false" validateClient="true"/>
+                            <br/><b><h4>Ainda não é cadastrado? <a href="telaCadastro.xhtml">Clique Aqui !</a></h4></b>
+                        </h:form>
+                    </td>
+                </tr>
+            </table>
+        </ui:define>
+    </ui:composition>
+</html>
+
