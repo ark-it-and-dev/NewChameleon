@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="template.xhtml">
+        <ui:define name="body">
+
+            <h:form id="cadEndereco">
+                <h1 style="font-family: calibri">Cadastro Endereço</h1>
+                <br/>
+                <h:panelGrid columns="3">
+                    <h:outputText value="Rua:" style="font-family: calibri" />
+                    <h:inputText id="rua" value="#{implementar.rua}" style="border-radius: 10px" required="true" requiredMessage="Digite a Rua" />
+                    <h:message id="msgRua" for="rua" style="color: red" />
+
+                    <h:outputText value="N°" style="font-family: calibri" />
+                    <h:inputText id="numero" value="#{implementar.numero}" maxlength="4" style="border-radius: 10px" required="true" requiredMessage="Digite o Número">
+                        <f:convertNumber type="number" maxFractionDigits="4" />
+                    </h:inputText>
+                    <h:message id="msgNumero" for="numero" style="color:red" />
+
+                    <h:outputText value="Bairro" style="font-family: calibri" />
+                    <h:inputText id="bairro" value="#{implementar.bairro}" style="border-radius: 10px" required="true" requiredMessage="Digite o Bairro" />
+                    <h:message id="msgBairro" for="bairro" style="color:red" />
+
+                    <h:outputText value="Cidade" style="font-family: calibri" />
+                    <h:inputText id="cidade" value="#{implementar.cidade}" style="border-radius: 10px" required="true" requiredMessage="Digite a Cidade" />
+                    <h:message id="msgCidade" for="cidade" style="color:red" />
+
+                    <h:outputText value="Cep:" style="font-family: calibri" />
+                    <h:inputText id="cep" value="#{implementar.cep}" required="true" requiredMessage="Digite o CEP" style="border-radius: 10px" />
+                    <h:message id="msgCep" for="cep" style="color: red" />
+                </h:panelGrid>
+
+                <p:commandButton value="Salvar" action="#{implementar.cadastroCliente()}" style="border-radius: 10px; font-family: calibri" ajax="false" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

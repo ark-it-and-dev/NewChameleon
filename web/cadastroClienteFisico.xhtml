@@ -13,32 +13,59 @@
                 <br />
                 <h:panelGrid columns="3">
                     <h:outputText value="Nome:" style="font-family: calibri" />
-                    <h:inputText id="nome" value="#{implementar.nome}" style="border-radius: 10px" required="true" requiredMessage="Digite o Nome" />
+                    <h:inputText id="nome" value="#{implementar.nome}" style="border-radius: 10px" 
+                                 required="true" requiredMessage="Digite o Nome" />
                     <h:message id="msgNome" for="nome" style="color: red" />
 
                     <h:outputText value="CPF:" style="font-family: calibri" />
-                    <h:inputText id="cpf" value="#{implementar.cpf}" style="border-radius: 10px" required="true" requiredMessage="Digite o CPF" />
+                    <h:inputText id="cpf" value="#{implementar.cpf}" style="border-radius: 10px" 
+                                 required="true" requiredMessage="Digite o CPF" />
                     <h:message id="msgCpf" for="cpf" style="color: red" />
 
                     <h:outputText value="Idade:" style="font-family: calibri" />
-                    <h:inputText id="idade" value="#{implementar.idade}" required="true" maxlength="2" requiredMessage="Digite a Idade" style="border-radius: 10px">
+                    <h:inputText id="idade" value="#{implementar.idade}" required="true" maxlength="2" 
+                                 requiredMessage="Digite a Idade" style="border-radius: 10px">
                         <f:convertNumber type="number" maxFractionDigits="2" />
                     </h:inputText>
                     <h:message id="msgIdade" for="idade" style="color: red" />
 
                     <h:outputText value="Data Nasc.:" style="font-family: calibri" />
-                    <h:inputText id="dataNascimento" value="#{implementar.nascimento}" required="true" requiredMessage="Digite a Data Nascimento" style="border-radius: 10px">
+                    <h:inputText id="dataNascimento" value="#{implementar.nascimento}" 
+                                 required="true" requiredMessage="Digite a Data Nascimento" style="border-radius: 10px">
                         <f:convertDateTime pattern="dd/MM/yyyy" locale="pt_BR" type="date" />
                     </h:inputText>
                     <h:message id="msgDtNasc" for="dataNascimento" style="color: red" />
 
                     <h:outputText value="Sexo:" style="font-family: calibri" />
-                    <h:selectOneMenu id="sexo" value="#{implementar.sexo}" style="font-family: calibri" required="true" requiredMessage="Selecione o Sexo">
-                        <f:selectItem itemLabel="Feminino" itemValue="Faminino" />
-                        <f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+                    <b>Status:</b> <h:selectOneMenu value="#{clienteBean.cliente.sexo}">
+                        <f:selectItems value="#{clienteBean.sexoCliente}"/>
                     </h:selectOneMenu>
-                    <h:message id="msgSexo" for="sexo" style="color: red" />
 
+                    <h:outputText value="Telefone:" style="font-family: calibri" />
+                    <h:inputText value="#{clienteBean.cliente.telefone1}" size="3" style="border-radius: 10px"
+                                 required="true" requiredMessage="Digite o CPF">
+                        <f:convertNumber type="number"/>
+                    </h:inputText>
+                    <h:message id="msgTelefone" for="telefone" style="color: red" />
+
+                    <h:outputText value="Celular:" style="font-family: calibri" />
+                    <h:inputText value="#{clienteBean.cliente.telefone2}" size="3" style="border-radius: 10px">
+                        <f:convertNumber type="number" />
+                    </h:inputText>
+                    <h:message id="msgCelular" for="celular" style="color: red" />
+
+                    <h:outputText value="Email:" style="font-family: calibri" />
+                    <h:inputText value="#{implementar.email}" style="border-radius: 10px" 
+                                 required="true" requiredMessage="Digite o Email" />
+                    <h:message id="msgEmail" for="email" style="color: red" />
+
+                    <h:outputText value="Senha:" style="font-family: calibri" />
+                    <h:inputSecret value="#{implementar.senha}" style="border-radius: 10px" 
+                                   required="true" requiredMessage="Digite a Senha" />
+                    <h:message id="msgSenha" for="senha" style="color: red" />
+                </h:panelGrid>
+
+                <h:panelGrid>
                     <h:outputText value="Rua:" style="font-family: calibri" />
                     <h:inputText id="rua" value="#{implementar.rua}" style="border-radius: 10px" required="true" requiredMessage="Digite a Rua" />
                     <h:message id="msgRua" for="rua" style="color: red" />
@@ -60,27 +87,8 @@
                     <h:outputText value="Cep:" style="font-family: calibri" />
                     <h:inputText id="cep" value="#{implementar.cep}" required="true" requiredMessage="Digite o CEP" style="border-radius: 10px" />
                     <h:message id="msgCep" for="cep" style="color: red" />
-
-                    <h:outputText value="Telefone:" style="font-family: calibri" />
-                    <h:inputText value="#{implementar.telefone.ddd}" size="3" style="border-radius: 10px">
-                        <f:convertNumber type="number" />
-                    </h:inputText>
-                    <h:message id="msgTelefone" for="telefone" style="color: red" />
-
-                     <h:outputText value="Celular:" style="font-family: calibri" />
-                    <h:inputText value="#{implementar.telefone.ddd}" size="3" style="border-radius: 10px">
-                        <f:convertNumber type="number" />
-                    </h:inputText>
-                     <h:message id="msgCelular" for="celular" style="color: red" />
-
-                    <h:outputText value="Email:" style="font-family: calibri" />
-                    <h:inputText value="#{implementar.email}" style="border-radius: 10px" />
-                    <h:message id="msgEmail" for="email" style="color: red" />
-                    
-                    <h:outputText value="Senha:" style="font-family: calibri" />
-                    <h:inputSecret value="#{implementar.senha}" style="border-radius: 10px" />
-                    <h:message id="msgSenha" for="senha" style="color: red" />
                 </h:panelGrid>
+
                 <p:commandButton value="Salvar" action="#{implementar.cadastroCliente()}" style="border-radius: 10px; font-family: calibri" ajax="false" />
             </h:form>
         </ui:define>

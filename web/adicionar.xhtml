@@ -5,22 +5,31 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
     <ui:composition template="templateAdmin.xhtml">
-
         <ui:define name="body">
             <h:form>
-                
                 <f:facet name="header">
                     ADICIONAR PRODUTOS
                 </f:facet>
                 <p:panelGrid columns="2">
-                    <b>Nome do Produto:</b> <p:inputText size="40" value="#{produtoBean.produto.nome}"/>
-                    <b>Descrição:</b> <p:inputTextarea value="#{produtoBean.produto.descricao}"/>
-                    <b>Preço:</b> <p:inputText size="40" value="#{produtoBean.produto.preco}"/>
-                    <b>Marca:</b> <p:inputText size="40" value="#{produtoBean.produto.marca}"/>
+                    <b>Nome do Produto:</b> 
+                    <p:inputText size="40" value="#{produtoMB.produto.nome}" required="true" 
+                                 requiredMessage="Digite o nome do produto" />
+                    <b>Descrição:</b> 
+                    <p:inputTextarea value="#{produtoMB.produto.descricao}" required="true" 
+                                     requiredMessage="Digite a descrição do produto" />
+                    <b>Preço:</b> 
+                    <p:inputText size="40" value="#{produtoMB.produto.preco}" required="true" 
+                                 requiredMessage="Preço inválido" />
+                    <b>Marca:</b> 
+                    <p:inputText size="40" value="#{produtoMB.produto.marca}" required="true" 
+                                 requiredMessage="Digite a marca do produto" />
+                    <b>Status:</b> 
+                    <h:selectOneMenu value="#{produtoMB.produto.status}">
+                        <f:selectItems value="#{produtoMB.statusProduto}"/>
+                    </h:selectOneMenu>                    
                     <br/><br/><br/><br/>
-                    <p:commandButton value="Adicionar Produto" action="#{produtoBean.adicionarProduto}" style="border-radius: 10px; font-family: calibri" ajax="false" />
+                    <p:commandButton value="Salvar" action="#{produtoMB.adicionarProduto()}" style="border-radius: 10px; font-family: calibri" ajax="false" />
                 </p:panelGrid>
             </h:form>
         </ui:define>

@@ -6,41 +6,52 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+
     <ui:composition template="templateAdmin.xhtml">
 
         <ui:define name="body" >
             <h:form>
-                <p:dataTable  id="dt1" value="#{produtoBean.listaProdutos}" var="produto">
+                <p:dataTable  id="dt1" value="#{produtoMB.listaProdutos}" var="produto">
                     <f:facet name="header">
                         LISTA DE PRODUTOS
                     </f:facet>
-
                     <p:column>
                         <f:facet name="header">
                             Produto
                         </f:facet>
                         <h:outputText value="#{produto.nome}"/>
                     </p:column>
-
                     <p:column>
                         <f:facet name="header">
                             Descrição
                         </f:facet>
                         <h:outputText value="#{produto.descricao}"/>
                     </p:column>
-
                     <p:column>
                         <f:facet name="header">
-                            Preço:
+                            Preço
                         </f:facet> 
                         <h:outputText  value="#{produto.preco}"/>
                     </p:column>
-
                     <p:column>
                         <f:facet name="header"> 
-                            Marca:
+                            Marca
                         </f:facet>
                         <h:outputText value="#{produto.marca}"/>
+                    </p:column>             
+                    <p:column style="text-align: center">
+                        <f:facet name="header"> 
+                            Status
+                        </f:facet>
+                        <h:outputText value="#{produto.status.label}"/>
+                    </p:column>             
+                    <p:column style="text-align: center">
+                        <f:facet name="header"> 
+                            Editar
+                        </f:facet>
+                        <p:commandLink action="#{produtoMB.editarProduto(produto)}" >
+                            <h:graphicImage name="images/edit.png" />
+                        </p:commandLink>
                     </p:column>             
                 </p:dataTable>
                 <br/>
