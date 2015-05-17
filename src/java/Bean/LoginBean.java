@@ -1,22 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Bean;
 
+import br.metodista.ejb.ClienteRemote;
+import br.metodista.modelo.Cliente;
+import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
-/**
- *
- * @author Fernando Benitez
- */
 @ManagedBean
 public class LoginBean {
 
+    @EJB
+    private ClienteRemote ejb;
+
+    Cliente cliente = new Cliente();
     private String login;
     private String senha;
-    private String email;
 
     public String getLogin() {
         return login;
@@ -34,20 +33,28 @@ public class LoginBean {
         this.senha = senha;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    public String entrar() {
+        if (login.equals("admin") && senha.equals("admin")) {
+            return "admin";
+        } else {
+            try {
+                cliente = ejb.consultarPorEmail(login);
+                if (cliente.getSenha().equals(senha)) {
+                    //criar carrinho
+                    return "carrinho";
+                } else {
+                    String message = "Senha incorreta";
+                    FacesContext.getCurrentInstance().addMessage(null,
+                            new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
+                    return null;
+                }
+            } catch (Exception e) {
+                String message = "Não foi possível efetuar o login. Erro:" + e.getMessage();
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void Entrar() {
-        String a = getLogin();
-        String b = getSenha();
-
-        if (a.equals("admin") && b.equals("admin")) {
-            
+                return null;
+            }
         }
     }
 

@@ -23,7 +23,7 @@
                                 <h:inputSecret id="senha" value="#{loginBean.senha}" style="border-radius: 10px" required="true" requiredMessage="Digite a Senha" />
                                 <h:message id="msgSenha" for="senha" style="color: red" />
                             </h:panelGrid>
-                            <p:commandButton value="Logar" action="templateLogado.xhtml" style="border-radius: 10px; font-family: calibri" ajax="false" validateClient="true"/>
+                            <p:commandButton value="Logar" action="#{loginBean.entrar()}" style="border-radius: 10px; font-family: calibri" ajax="false" validateClient="true"/>
                             <br/><b><h4>Ainda não é cadastrado? <a href="telaCadastro.xhtml">Clique Aqui !</a></h4></b>
                         </h:form>
                     </td>
