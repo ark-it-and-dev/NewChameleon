@@ -1,7 +1,7 @@
 package Bean;
 
-import br.metodista.ejb.ClienteRemote;
-import br.metodista.modelo.Cliente;
+import EJB.ClienteFacadeLocal;
+import Model.Cliente;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 public class LoginBean {
 
     @EJB
-    private ClienteRemote ejb;
+    private ClienteFacadeLocal ejb;
 
     Cliente cliente = new Cliente();
     private String login;
@@ -38,7 +38,7 @@ public class LoginBean {
             return "admin";
         } else {
             try {
-                cliente = ejb.consultarPorEmail(login);
+                cliente = ejb.findByEmail(login);
                 if (cliente.getSenha().equals(senha)) {
                     //criar carrinho
                     return "carrinho";
@@ -57,5 +57,4 @@ public class LoginBean {
             }
         }
     }
-
 }

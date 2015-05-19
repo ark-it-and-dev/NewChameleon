@@ -11,31 +11,34 @@
             <h:form id="cadEndereco">
                 <h1 style="font-family: calibri">Cadastro Endereço</h1>
                 <br/>
-                <h:panelGrid columns="3">
-                    <h:outputText value="Rua:" style="font-family: calibri" />
-                    <h:inputText id="rua" value="#{implementar.rua}" style="border-radius: 10px" required="true" requiredMessage="Digite a Rua" />
-                    <h:message id="msgRua" for="rua" style="color: red" />
+                <h:panelGrid columns="2">
+                    <b>Rua</b>
+                    <h:inputText id="rua" value="#{enderecoBean.endereco.logradouro}" style="border-radius: 10px"
+                                 required="true" requiredMessage="Digite a Rua" />
 
-                    <h:outputText value="N°" style="font-family: calibri" />
-                    <h:inputText id="numero" value="#{implementar.numero}" maxlength="4" style="border-radius: 10px" required="true" requiredMessage="Digite o Número">
+                    <b>Nº</b>
+                    <h:inputText id="numero" value="#{enderecoBean.endereco.numero}" maxlength="4" style="border-radius: 10px" 
+                                 required="true" requiredMessage="Digite o Número">
                         <f:convertNumber type="number" maxFractionDigits="4" />
                     </h:inputText>
-                    <h:message id="msgNumero" for="numero" style="color:red" />
 
-                    <h:outputText value="Bairro" style="font-family: calibri" />
-                    <h:inputText id="bairro" value="#{implementar.bairro}" style="border-radius: 10px" required="true" requiredMessage="Digite o Bairro" />
-                    <h:message id="msgBairro" for="bairro" style="color:red" />
+                    <b>Bairro</b>
+                    <h:inputText id="bairro" value="#{enderecoBean.endereco.bairro}" style="border-radius: 10px"
+                                 required="true" requiredMessage="Digite o Bairro" />
 
-                    <h:outputText value="Cidade" style="font-family: calibri" />
-                    <h:inputText id="cidade" value="#{implementar.cidade}" style="border-radius: 10px" required="true" requiredMessage="Digite a Cidade" />
-                    <h:message id="msgCidade" for="cidade" style="color:red" />
+                    <b>Cidade</b>
+                    <h:inputText id="cidade" value="#{enderecoBean.endereco.cidade}" style="border-radius: 10px" 
+                                 required="true" requiredMessage="Digite a Cidade" />
 
-                    <h:outputText value="Cep:" style="font-family: calibri" />
-                    <h:inputText id="cep" value="#{implementar.cep}" required="true" requiredMessage="Digite o CEP" style="border-radius: 10px" />
-                    <h:message id="msgCep" for="cep" style="color: red" />
+                    <b>Estado</b>
+                    <h:inputText id="estado" value="#{enderecoBean.endereco.uf}" style="border-radius: 10px" 
+                                 required="true" requiredMessage="Digite o Estado" />
+
+                    <b>CEP</b>
+                    <h:inputText id="cep" value="#{enderecoBean.endereco.cep}" required="true" 
+                                 requiredMessage="Digite o CEP" style="border-radius: 10px" />
                 </h:panelGrid>
-
-                <p:commandButton value="Salvar" action="#{implementar.cadastroCliente()}" style="border-radius: 10px; font-family: calibri" ajax="false" />
+                <p:commandButton value="Salvar" action="#{enderecoBean.salvarEndereco()}" style="border-radius: 10px; font-family: calibri" ajax="false" />
             </h:form>
         </ui:define>
     </ui:composition>

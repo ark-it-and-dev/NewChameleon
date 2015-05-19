@@ -11,7 +11,7 @@
 
         <ui:define name="body" >
             <h:form>
-                <p:dataTable  id="dt1" value="#{produtoMB.listaProdutos}" var="produto">
+                <p:dataTable  id="dt1" value="#{produtoBean.listaProdutos}" var="produto">
                     <f:facet name="header">
                         LISTA DE PRODUTOS
                     </f:facet>
@@ -49,7 +49,7 @@
                         <f:facet name="header"> 
                             Editar
                         </f:facet>
-                        <p:commandLink action="#{produtoMB.editarProduto(produto)}" >
+                        <p:commandLink action="#{produtoBean.editarProduto(produto)}" >
                             <h:graphicImage name="images/edit.png" />
                         </p:commandLink>
                     </p:column>             

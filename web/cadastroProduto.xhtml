@@ -5,27 +5,34 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
     <ui:composition template="templateAdmin.xhtml">
-
         <ui:define name="body">
             <h:form>
-                <p:accordionPanel multiple="true">
-                    <p:tab title="Adicionar Produtos">
-                        <h:panelGrid columns="2">
-                            <b>Nome do Produto:</b> <p:inputText size="40"/>
-                            <b>Descrição:</b> <p:inputTextarea />
-                            <b>Preço:</b> <p:inputText size="40"/>
-                            <b>Imagem</b> <p:growl id="messages" showDetail="true"/>
-                            <p:fileUpload value="#{fileUploadView.file}"></p:fileUpload>
-                            <br />
-                            <p:commandButton value="Adicionar no Produto" action="#{implementar}" style="border-radius: 10px; font-family: calibri" ajax="false" icon="ui-icon-disk"/>
-                        </h:panelGrid>
-                    </p:tab>
-                </p:accordionPanel>
+                <f:facet name="header">
+                    ADICIONAR PRODUTOS
+                </f:facet>
+                <p:panelGrid columns="2">
+                    <b>Nome do Produto:</b> 
+                    <p:inputText size="40" value="#{produtoBean.produto.nome}" required="true" 
+                                 requiredMessage="Digite o nome do produto" />
+                    <b>Descrição:</b> 
+                    <p:inputTextarea value="#{produtoBean.produto.descricao}" required="true" 
+                                     requiredMessage="Digite a descrição do produto" />
+                    <b>Preço:</b> 
+                    <p:inputText size="40" value="#{produtoBean.produto.preco}" required="true" 
+                                 requiredMessage="Preço inválido" />
+                    <b>Marca:</b> 
+                    <p:inputText size="40" value="#{produtoBean.produto.marca}" required="true" 
+                                 requiredMessage="Digite a marca do produto" />
+                    <b>Status:</b> 
+                    <h:selectOneMenu value="#{produtoBean.produto.status}">
+                        <f:selectItems itemValue="Disponivel" itemLabel="Disponivel"/>
+                        <f:selectItems itemValue="Indisponivel" itemLabel="Indisponivel"/>
+                    </h:selectOneMenu>                    
+                    <br/><br/><br/><br/>
+                    <p:commandButton value="Salvar" action="#{produtoBean.adicionarProduto()}" style="border-radius: 10px; font-family: calibri" ajax="false" />
+                </p:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>
-
 </html>
-

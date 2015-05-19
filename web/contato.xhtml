@@ -23,9 +23,9 @@
 
                             <h:panelGrid columns="2" columnClasses="label, value">
                                 <h:outputText value="Assunto:"/>&nbsp; &nbsp; 
-                                <p:selectOneMenu id="console" value="#{implementar}" style="width:125px">
+                                <p:selectOneMenu id="console" value="#{contatoBean.console}" style="width:125px">
                                     <f:selectItem itemLabel="Compras" itemValue="Compras" />
-                                    <f:selectItem itemLabel="Criticas e Sugestões" itemValue="riticas e Sugestões" />
+                                    <f:selectItem itemLabel="Criticas e Sugestões" itemValue="Criticas e Sugestoes" />
                                     <f:selectItem itemLabel="Outros" itemValue="Outros" />
                                 </p:selectOneMenu>
                                 <br></br>
@@ -44,7 +44,7 @@
                                 <br></br>
                                 <h:outputText value="Mensagem:"/>
                                 <br></br>
-                                <p:inputTextarea rows="10" cols="63" />
+                                <p:inputTextarea value="#{contatoBean.mensagem}" rows="10" cols="63" />
                                 <br></br>
                                 <!--                                <p:growl id="growl" life="2000" />-->
                                 <p:commandButton value="Enviar"  actionListener="#{contatoBean.enviar()}" styleClass="ui-priority-primary" />

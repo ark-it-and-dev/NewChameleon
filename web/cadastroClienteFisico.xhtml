@@ -9,87 +9,110 @@
         <ui:define name="body">
 
             <h:form id="cadCliente">
-                <h1 style="font-family: calibri">Cadastro Pessoa Fisica</h1>
+                <h2 style="font-family: calibri">Cadastro Pessoa Fisica</h2>
                 <br />
-                <h:panelGrid columns="3">
-                    <h:outputText value="Nome:" style="font-family: calibri" />
-                    <h:inputText id="nome" value="#{implementar.nome}" style="border-radius: 10px" 
-                                 required="true" requiredMessage="Digite o Nome" />
-                    <h:message id="msgNome" for="nome" style="color: red" />
+                <h:panelGrid columns="2">
+                    <b>Nome</b>
+                    <h:inputText id="nome" value="#{clienteBean.cliente.nome}" style="border-radius: 10px" 
+                                 required="true" requiredMessage="Digite o Nome" />                    
 
-                    <h:outputText value="CPF:" style="font-family: calibri" />
-                    <h:inputText id="cpf" value="#{implementar.cpf}" style="border-radius: 10px" 
+                    <b>CPF</b>
+                    <h:inputText id="cpf" value="#{clienteBean.cliente.cpf}" style="border-radius: 10px" 
                                  required="true" requiredMessage="Digite o CPF" />
-                    <h:message id="msgCpf" for="cpf" style="color: red" />
 
-                    <h:outputText value="Idade:" style="font-family: calibri" />
-                    <h:inputText id="idade" value="#{implementar.idade}" required="true" maxlength="2" 
-                                 requiredMessage="Digite a Idade" style="border-radius: 10px">
-                        <f:convertNumber type="number" maxFractionDigits="2" />
-                    </h:inputText>
-                    <h:message id="msgIdade" for="idade" style="color: red" />
-
-                    <h:outputText value="Data Nasc.:" style="font-family: calibri" />
-                    <h:inputText id="dataNascimento" value="#{implementar.nascimento}" 
+                    <b>Data Nasc.</b>
+                    <h:inputText id="dataNascimento" value="#{clienteBean.cliente.nascimento}" 
                                  required="true" requiredMessage="Digite a Data Nascimento" style="border-radius: 10px">
                         <f:convertDateTime pattern="dd/MM/yyyy" locale="pt_BR" type="date" />
                     </h:inputText>
-                    <h:message id="msgDtNasc" for="dataNascimento" style="color: red" />
 
-                    <h:outputText value="Sexo:" style="font-family: calibri" />
-                    <b>Status:</b> <h:selectOneMenu value="#{clienteBean.cliente.sexo}">
+                    <b>Sexo</b>
+                    <h:selectOneMenu value="#{clienteBean.cliente.sexo}">
                         <f:selectItems value="#{clienteBean.sexoCliente}"/>
                     </h:selectOneMenu>
 
-                    <h:outputText value="Telefone:" style="font-family: calibri" />
+                    <b>Telefone</b>
                     <h:inputText value="#{clienteBean.cliente.telefone1}" size="3" style="border-radius: 10px"
-                                 required="true" requiredMessage="Digite o CPF">
+                                 required="true" requiredMessage="Digite o Telefone">
                         <f:convertNumber type="number"/>
-                    </h:inputText>
-                    <h:message id="msgTelefone" for="telefone" style="color: red" />
+                    </h:inputText>                    
 
-                    <h:outputText value="Celular:" style="font-family: calibri" />
+                    <b>Celular</b>
                     <h:inputText value="#{clienteBean.cliente.telefone2}" size="3" style="border-radius: 10px">
                         <f:convertNumber type="number" />
                     </h:inputText>
-                    <h:message id="msgCelular" for="celular" style="color: red" />
 
-                    <h:outputText value="Email:" style="font-family: calibri" />
-                    <h:inputText value="#{implementar.email}" style="border-radius: 10px" 
+                    <b>Email</b>
+                    <h:inputText value="#{clienteBean.cliente.email}" style="border-radius: 10px" 
                                  required="true" requiredMessage="Digite o Email" />
-                    <h:message id="msgEmail" for="email" style="color: red" />
 
-                    <h:outputText value="Senha:" style="font-family: calibri" />
-                    <h:inputSecret value="#{implementar.senha}" style="border-radius: 10px" 
-                                   required="true" requiredMessage="Digite a Senha" />
-                    <h:message id="msgSenha" for="senha" style="color: red" />
+                    <b>Senha</b>
+                    <h:inputSecret value="#{clienteBean.cliente.senha}" style="border-radius: 10px" 
+                                   required="true" requiredMessage="Digite a Senha" />                
+
+                    <b>Confirme a senha</b>
+                    <h:inputSecret value="#{clienteBean.senhaConf}" style="border-radius: 10px" 
+                                   required="true" requiredMessage="Digite a Senha" />                    
                 </h:panelGrid>
-
-                <h:panelGrid>
-                    <h:outputText value="Rua:" style="font-family: calibri" />
-                    <h:inputText id="rua" value="#{implementar.rua}" style="border-radius: 10px" required="true" requiredMessage="Digite a Rua" />
-                    <h:message id="msgRua" for="rua" style="color: red" />
-
-                    <h:outputText value="N°" style="font-family: calibri" />
-                    <h:inputText id="numero" value="#{implementar.numero}" maxlength="4" style="border-radius: 10px" required="true" requiredMessage="Digite o Número">
-                        <f:convertNumber type="number" maxFractionDigits="4" />
-                    </h:inputText>
-                    <h:message id="msgNumero" for="numero" style="color:red" />
-
-                    <h:outputText value="Bairro" style="font-family: calibri" />
-                    <h:inputText id="bairro" value="#{implementar.bairro}" style="border-radius: 10px" required="true" requiredMessage="Digite o Bairro" />
-                    <h:message id="msgBairro" for="bairro" style="color:red" />
-
-                    <h:outputText value="Cidade" style="font-family: calibri" />
-                    <h:inputText id="cidade" value="#{implementar.cidade}" style="border-radius: 10px" required="true" requiredMessage="Digite a Cidade" />
-                    <h:message id="msgCidade" for="cidade" style="color:red" />
-
-                    <h:outputText value="Cep:" style="font-family: calibri" />
-                    <h:inputText id="cep" value="#{implementar.cep}" required="true" requiredMessage="Digite o CEP" style="border-radius: 10px" />
-                    <h:message id="msgCep" for="cep" style="color: red" />
-                </h:panelGrid>
-
-                <p:commandButton value="Salvar" action="#{implementar.cadastroCliente()}" style="border-radius: 10px; font-family: calibri" ajax="false" />
+                <br/>
+                <p:dataTable id="dt2" value="#{clienteBean.cliente.listaEndereco}" var="endereco">
+                    <f:facet name="header">
+                        LISTA DE ENDEREÇOS
+                    </f:facet>
+                    <p:column>
+                        <f:facet name="header">
+                            Rua
+                        </f:facet>
+                        <h:outputText value="#{endereco.logradouro}"/>                        
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            Nº
+                        </f:facet>
+                        <h:outputText value="#{endereco.numero}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            Comp.
+                        </f:facet>
+                        <h:outputText value="#{endereco.complemento}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            Bairro
+                        </f:facet>
+                        <h:outputText value="#{endereco.bairro}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            Cidade
+                        </f:facet>
+                        <h:outputText value="#{endereco.cidade}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            Estado
+                        </f:facet>
+                        <h:outputText value="#{endereco.uf}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            CEP
+                        </f:facet>
+                        <h:outputText value="#{endereco.cep}"/>
+                    </p:column>
+                    <p:column style="text-align: center">
+                        <f:facet name="header"> 
+                            Editar
+                        </f:facet>
+                        <p:commandLink action="#{enderecoBean.editarEndereco(endereco)}" >
+                            <h:graphicImage name="images/edit.png" />
+                        </p:commandLink>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Add. Endereço" action="cadastroEndereco.xhtml" style="float: right" ajax="false"/>
+                <br/><br/>
+                <p:commandButton value="Salvar Cliente" action="#{clienteBean.adicionarCliente()}" style="border-radius: 10px" ajax="false"/>
             </h:form>
         </ui:define>
     </ui:composition>
