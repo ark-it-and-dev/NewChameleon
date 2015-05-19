@@ -2,6 +2,7 @@ package Bean;
 
 import EJB.ClienteFacadeLocal;
 import Model.Cliente;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -38,8 +39,15 @@ public class LoginBean {
             return "admin";
         } else {
             try {
-                cliente = ejb.findByEmail(login);
-                if (cliente.getSenha().equals(senha)) {
+                boolean isValid = false;
+                List<Cliente> lc = ejb.findAll();
+                for (Cliente c : lc) {
+                    if (c.getSenha().equals(senha)) {
+                        isValid = true;
+                        break;
+                    }
+                }
+                if (isValid) {
                     //criar carrinho
                     return "carrinho";
                 } else {

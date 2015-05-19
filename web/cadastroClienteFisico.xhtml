@@ -33,14 +33,10 @@
 
                     <b>Telefone</b>
                     <h:inputText value="#{clienteBean.cliente.telefone1}" size="3" style="border-radius: 10px"
-                                 required="true" requiredMessage="Digite o Telefone">
-                        <f:convertNumber type="number"/>
-                    </h:inputText>                    
+                                 required="true" requiredMessage="Digite o Telefone"/>
 
                     <b>Celular</b>
-                    <h:inputText value="#{clienteBean.cliente.telefone2}" size="3" style="border-radius: 10px">
-                        <f:convertNumber type="number" />
-                    </h:inputText>
+                    <h:inputText value="#{clienteBean.cliente.telefone2}" size="3" style="border-radius: 10px"/>
 
                     <b>Email</b>
                     <h:inputText value="#{clienteBean.cliente.email}" style="border-radius: 10px" 
@@ -55,7 +51,7 @@
                                    required="true" requiredMessage="Digite a Senha" />                    
                 </h:panelGrid>
                 <br/>
-                <p:dataTable id="dt2" value="#{clienteBean.cliente.listaEndereco}" var="endereco">
+                <p:dataTable id="dt2" value="#{clienteBean.cliente.enderecoCollection}" var="endereco">
                     <f:facet name="header">
                         LISTA DE ENDEREÇOS
                     </f:facet>

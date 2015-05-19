@@ -13,7 +13,7 @@
                 <br/>
                 <h:panelGrid columns="2">
                     <b>Razão Social</b>
-                    <h:inputText id="nome" value="#{clienteBean.cliente.razaoSocial}" style="border-radius: 10px" 
+                    <h:inputText id="nome" value="#{clienteBean.cliente.razaosocial}" style="border-radius: 10px" 
                                  required="true" requiredMessage="O campo Razão Social não pode estar vazio" />
 
                     <b>CNPJ</b>                    
@@ -21,7 +21,7 @@
                                  required="true" requiredMessage="O campo CNPJ não pode estar vazio" />
 
                     <b>Insc. Estadual</b>                                        
-                    <h:inputText id="InscEstadual" value="#{clienteBean.cliente.inscEstadual}"  style="border-radius: 10px"
+                    <h:inputText id="InscEstadual" value="#{clienteBean.cliente.inscestadual}"  style="border-radius: 10px"
                                  required="true" requiredMessage="O campo Inscrição Estadual não pode ficar em branco">
                         <f:convertNumber type="number"/>
                     </h:inputText>
@@ -49,7 +49,7 @@
 
                 </h:panelGrid>
                 <br/>
-                <p:dataTable id="dt2" value="#{clienteBean.cliente.listaEndereco}" var="endereco">
+                <p:dataTable id="dt2" value="#{clienteBean.cliente.enderecoCollection}" var="endereco">
                     <f:facet name="header">
                         LISTA DE ENDEREÇOS
                     </f:facet>

@@ -62,7 +62,7 @@ public class Produto implements Serializable {
     private String marca;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 1)
+    //@Size(min = 1, max = 1)
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
     private StatusProduto status;

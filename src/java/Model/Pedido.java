@@ -44,7 +44,7 @@ public class Pedido implements Serializable {
     private BigDecimal id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    //@Size(min = 1, max = 20)
     @Column(name = "STATUS")
     @Enumerated(EnumType.STRING)
     private StatusPedido status;

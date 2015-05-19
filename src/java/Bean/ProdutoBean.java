@@ -10,6 +10,7 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 
 @ManagedBean
 public class ProdutoBean {
@@ -21,40 +22,7 @@ public class ProdutoBean {
     private ProdutoFacadeLocal ejb;
 
     public List<Produto> getListaProdutos() {
-        //listaProdutos = ejb.consultarTodos();
-
-        Produto pp = new Produto();
-        pp.setDescricao("desc1");
-        pp.setMarca("mrk1");
-        pp.setNome("nome1");
-        pp.setPreco(BigDecimal.valueOf(11.00));
-        pp.setStatus(StatusProduto.D);
-        listaProdutos.add(pp);
-
-        pp = new Produto();
-        pp.setDescricao("desc2");
-        pp.setMarca("mrk2");
-        pp.setNome("nome2");
-        pp.setPreco(BigDecimal.valueOf(12.00));
-        pp.setStatus(StatusProduto.D);
-        listaProdutos.add(pp);
-
-        pp = new Produto();
-        pp.setDescricao("desc3");
-        pp.setMarca("mrk3");
-        pp.setNome("nome3");
-        pp.setPreco(BigDecimal.valueOf(13.00));
-        pp.setStatus(StatusProduto.I);
-        listaProdutos.add(pp);
-
-        pp = new Produto();
-        pp.setDescricao("desc4");
-        pp.setMarca("mrk5");
-        pp.setNome("nome5");
-        pp.setPreco(BigDecimal.valueOf(14.00));
-        pp.setStatus(StatusProduto.I);
-        listaProdutos.add(pp);
-
+        listaProdutos = ejb.findAll();
         return listaProdutos;
     }
 
@@ -83,16 +51,15 @@ public class ProdutoBean {
     public void setProduto(Produto produto) {
         this.produto = produto;
     }
-    /*
-     public SelectItem[] getStatusProduto() {
-     SelectItem[] items = new SelectItem[StatusProduto.values().length];
-     int i = 0;
-     for (StatusProduto s : StatusProduto.values()) {
-     items[i++] = new SelectItem(s, s.getLabel());
-     }
-     return items;
-     }
-     */
+
+    public SelectItem[] getStatusProduto() {
+        SelectItem[] items = new SelectItem[StatusProduto.values().length];
+        int i = 0;
+        for (StatusProduto s : StatusProduto.values()) {
+            items[i++] = new SelectItem(s, s.getLabel());
+        }
+        return items;
+    }
 
     public void clear() {
         produto = new Produto();

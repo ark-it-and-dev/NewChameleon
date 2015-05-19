@@ -59,7 +59,7 @@ public class Cliente implements Serializable {
     @Column(name = "CPF")
     private String cpf;
     @Enumerated(EnumType.STRING)
-    @Size(max = 1)
+    //@Size(max = 1)
     @Column(name = "SEXO")
     private SexoCliente sexo;
     @Column(name = "NASCIMENTO")

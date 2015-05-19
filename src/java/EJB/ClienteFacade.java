@@ -4,7 +4,6 @@ import Model.Cliente;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 @Stateless
 public class ClienteFacade extends AbstractFacade<Cliente> implements ClienteFacadeLocal {
@@ -20,14 +19,4 @@ public class ClienteFacade extends AbstractFacade<Cliente> implements ClienteFac
     public ClienteFacade() {
         super(Cliente.class);
     }
-
-    @Override
-    public Cliente findByEmail(String email) {
-        Cliente cliente;
-        Query q = em.createNamedQuery("Cliente.findByEmail");
-        q.setParameter("email", email);
-        cliente = (Cliente) q.getSingleResult();
-        return cliente;
-    }
-
 }

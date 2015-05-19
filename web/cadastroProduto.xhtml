@@ -26,8 +26,8 @@
                                  requiredMessage="Digite a marca do produto" />
                     <b>Status:</b> 
                     <h:selectOneMenu value="#{produtoBean.produto.status}">
-                        <f:selectItems itemValue="Disponivel" itemLabel="Disponivel"/>
-                        <f:selectItems itemValue="Indisponivel" itemLabel="Indisponivel"/>
+                        <f:selectItems value="#{produtoBean.statusProduto}" />
+                        
                     </h:selectOneMenu>                    
                     <br/><br/><br/><br/>
                     <p:commandButton value="Salvar" action="#{produtoBean.adicionarProduto()}" style="border-radius: 10px; font-family: calibri" ajax="false" />

@@ -2,6 +2,7 @@ package Bean;
 
 import EJB.ClienteFacadeLocal;
 import Model.Cliente;
+import Model.SexoCliente;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -34,16 +35,15 @@ public class ClienteBean {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    /*
-     public SelectItem[] getSexoCliente() {
-     SelectItem[] items = new SelectItem[SexoCliente.values().length];
-     int i = 0;
-     for (SexoCliente s : SexoCliente.values()) {
-     items[i++] = new SelectItem(s, s.getLabel());
-     }
-     return items;
-     }
-     */
+
+    public SelectItem[] getSexoCliente() {
+        SelectItem[] items = new SelectItem[SexoCliente.values().length];
+        int i = 0;
+        for (SexoCliente s : SexoCliente.values()) {
+            items[i++] = new SelectItem(s, s.getLabel());
+        }
+        return items;
+    }
 
     public void adicionarCliente() {
         try {
