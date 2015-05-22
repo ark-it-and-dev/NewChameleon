@@ -6,84 +6,37 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"> 
     <ui:composition template="template.xhtml">
+
         <ui:define name="body">
             <h:form id="formCarrinho">
-                <p:dataTable id="tabelaCarrinho" value="#{carrinhoMB.pedido.itens}" var="item">
-                    <p:column style="width:40px">
-                        <f:facet name="header">
-                            <h:outputText value="Produto" style="font-family: calibri;" />
-                        </f:facet>
-                        <table style="border:white">
-                            <tr>
-                                <td align="center">
-                                    <table border="0" style="border-color: white">
-                                        <tr>
-                                            <td>
-                                                <h:graphicImage value="resources/images#{implementarimagem}" style="width: 50px"/>
-                                            </td>
-                                            <td>
-                                                <h:outputText value="#{implementartituloDoProduto}" style="font-family: calibri" />
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </p:column>
 
-                    <p:column style="width: 40px;">
+                <p:dataTable id="dt2" value="#{pedidoBean.carrinho.itens}" var="item">
+                    <f:facet name="header">
+                        LISTA DE PRODUTOS
+                    </f:facet>
+                    <p:column>
                         <f:facet name="header">
-                            <h:outputText value="Quantidade" style="font-family: calibri" />
+                            Produto
                         </f:facet>
-                        <table style="border: white">
-                            <tr>
-                                <td align="center">
-                                    <h:inputText value="#{item.quantidade}" style="width: 30px;" maxlength="2">
-                                        <p:ajax update="tabelaCarrinho" listener="#{carrinho.alteraQtd(item)}" />
-                                    </h:inputText>
-                                </td>
-                            </tr>
-                        </table>
-                        <f:facet name="footer">
-                            <h:outputText value="Valor Total" style="font-family: calibri" />
-                        </f:facet>
+                        <h:outputText value="#{item.produto.nome}"/>                        
                     </p:column>
-
-                    <p:column style="width: 40px">
+                    <p:column>
                         <f:facet name="header">
-                            <h:outputText value="Valor" style="font-family: calibri" />
+                            Valor
                         </f:facet>
-                        <table style="border:white">
-                            <tr>
-                                <td align="center">
-                                    <h:outputText value="#{item.total}" style="font-family: calibri">
-                                        <f:convertNumber minFractionDigits="2" locale="pt_BR" type="currency"/>
-                                    </h:outputText>
-                                </td>
-                            </tr>
-                        </table>
-                        <f:facet name="footer">
-                            <h:outputText value="#{carrinho.pedido.valor}" style="font-family: calibri">
-                                <f:convertNumber type="currency" locale="pt_BR" minFractionDigits="2" />
-                            </h:outputText>
-                        </f:facet>
+                        <h:outputText value="#{item.produto.preco}"/>
                     </p:column>
-
-                    <p:column style="width: 40px">
+                    <p:column>
                         <f:facet name="header">
-                            <h:outputText value="Remover" style="font-family: calibri" />
+                            Quantidade
                         </f:facet>
-                        <table style="border:white">
-                            <tr>
-                                <td align="center">
-                                    <p:commandButton value="Remover" style="border-radius:10px" action="#{carrinhoMB.removerItens(item)}" ajax="false"/>
-                                </td>
-                            </tr>
-                        </table>
+                        <h:inputText  style="width:30px"   value="#{item.quantidade}" />
                     </p:column>
-
+                    <p:column>
+                        <p:commandButton value="Atualizar" style="border-radius: 10px" action="#{pedidoBean.carrinho.update(item.produto, item.quantidade)}" ajax="false"/>
+                    </p:column>
                 </p:dataTable>
-                <p:commandButton value="Comprar" style="border-radius: 10px" action="#{carrinho.finalizarCompra(clienteTals.cliente)}" ajax="false" rendered="#{carrinhoMB.pedido.itens.size() != 0}"/>
+                <p:commandButton value="Finalizar Compra" style="border-radius: 10px" action="listaEnderecos.xhtml" ajax="false" rendered="#{USER != null}"/>
             </h:form>
         </ui:define>
     </ui:composition>

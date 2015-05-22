@@ -1,11 +1,13 @@
 package Carrinho;
 
-//import br.com.ChameleonEJB.Model.Produto;
+import Model.Produto;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Carrinho {
-/*
+
     List<ItemCarrinho> itens;
     int totalItens;
     double total;
@@ -17,6 +19,7 @@ public class Carrinho {
     }
 
     public void addItem(Produto produto) {
+        System.out.println(produto);
         boolean novoItem = true;
 
         //Percorre toda a lista de produtos
@@ -25,6 +28,7 @@ public class Carrinho {
             if (itemCarrinho.getProduto().getId() == produto.getId()) {
                 novoItem = false;
                 itemCarrinho.incrementaQuantidade();
+                System.out.println("aumentou quantidade");
             }
         }
 
@@ -32,6 +36,7 @@ public class Carrinho {
         if (novoItem) {
             ItemCarrinho item = new ItemCarrinho(produto);
             itens.add(item);
+            System.out.println("Adicionou item");
         }
     }
 
@@ -69,13 +74,20 @@ public class Carrinho {
     }
 
     public double getSubtotal() {
+
         double valor = 0;
         //Percorre todos os itens e soma os valores totais
         for (ItemCarrinho itemCarrinho : itens) {
             Produto produto = itemCarrinho.getProduto();
             valor += (itemCarrinho.getQuantidade() * produto.getPreco().doubleValue());
         }
+
         return valor;
+    }
+
+    public String formatTotal() {
+        DecimalFormat format = new DecimalFormat("#,###.##");
+        return format.format(getSubtotal());
     }
 
     public void calcularTotal(double desconto) {
@@ -92,5 +104,5 @@ public class Carrinho {
         totalItens = 0;
         total = 0;
     }
-*/
+
 }

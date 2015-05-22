@@ -6,6 +6,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="template.xhtml">
+
         <ui:define name="body">
 
             <h:form id="cadEndereco">
@@ -38,9 +39,9 @@
                     <h:inputText id="cep" value="#{enderecoBean.endereco.cep}" required="true" 
                                  requiredMessage="Digite o CEP" style="border-radius: 10px" />
                 </h:panelGrid>
-                <p:commandButton value="Salvar" action="#{enderecoBean.salvarEndereco()}" style="border-radius: 10px; font-family: calibri" ajax="false" />
+                <p:commandButton value="Salvar" action="#{enderecoBean.salvarEndereco()}" style="border-radius: 10px; font-family: calibri" ajax="false" immediate="true"/>
             </h:form>
         </ui:define>
+
     </ui:composition>
 </html>
-

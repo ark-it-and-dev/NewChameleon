@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="template.xhtml">
+        <ui:define name="body">
+
+            <h:form id="confDados">                
+                <h3>Confirmação de dados para criação do pedido</h3> 
+                
+                <br/>
+                <b>CLIENTE</b>
+                <h:panelGrid columns="2">
+                    <b>Nome: </b>
+                    <h:outputText id="nome" value="#{pedidoBean.cliente.nome}" style="border-radius: 10px"/>
+
+                    <b>Tel: </b>
+                    <h:outputText id="tel" value="#{pedidoBean.cliente.telefone1}"/>
+
+                    <b>Email: </b>
+                    <h:outputText id="mail" value="#{pedidoBean.cliente.email}" style="border-radius: 10px" />
+                </h:panelGrid>
+                <br/>
+                <b>ENDEREÇO DE ENTREGA</b>
+                <h:panelGrid columns="2">
+                    <b>Rua: </b>
+                    <h:outputText id="rua" value="#{pedidoBean.endereco.logradouro}" style="border-radius: 10px"/>
+
+                    <b>N°: </b>
+                    <h:outputText id="numero" value="#{pedidoBean.endereco.numero}"/>
+
+                    <b>Bairro: </b>
+                    <h:outputText id="bairro" value="#{pedidoBean.endereco.bairro}" style="border-radius: 10px" />
+
+                    <b>Cidade: </b>
+                    <h:outputText id="cidade" value="#{pedidoBean.endereco.cidade}" style="border-radius: 10px" />
+
+                    <b>UF: </b>
+                    <h:outputText id="cep" value="#{pedidoBean.endereco.uf}" style="border-radius: 10px" />
+
+                </h:panelGrid>                
+                <br/>
+                <p:dataTable id="dt2" value="#{pedidoBean.carrinho.itens}" var="item">
+                    <f:facet name="header">
+                        LISTA DE PRODUTOS
+                    </f:facet>
+                    <p:column>
+                        <f:facet name="header">
+                            Produto
+                        </f:facet>
+                        <h:outputText value="#{item.produto.nome}"/>                        
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            Quantidade
+                        </f:facet>
+                        <h:outputText value="#{item.quantidade}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            Valor
+                        </f:facet>
+                        <h:outputText value="#{item.produto.preco}"/>
+                    </p:column>
+                </p:dataTable>
+                <br/><br/>
+                <b>Valor Total: <h:outputText value="#{pedidoBean.carrinho.subtotal}"/> R$</b>
+                <br/><br/>
+                <p:commandButton value="Confirmar" style="border-radius: 10px" action="#{pedidoBean.criarPedido()}" ajax="false" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

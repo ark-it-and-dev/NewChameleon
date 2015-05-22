@@ -260,4 +260,7 @@ public class Cliente implements Serializable {
         return "Model.Cliente[ id=" + id + " ]";
     }
 
+    public void addEndereco(Endereco e) {
+        enderecoCollection.add(e);
+    }
 }

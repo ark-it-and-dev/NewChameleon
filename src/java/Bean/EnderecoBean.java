@@ -1,17 +1,22 @@
 package Bean;
 
+import EJB.ClienteFacadeLocal;
 import EJB.EnderecoFacadeLocal;
+import Model.Cliente;
 import Model.Endereco;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 @ManagedBean
 public class EnderecoBean {
 
     @EJB
     EnderecoFacadeLocal ejb;
+    @EJB
+    ClienteFacadeLocal ejbCli;
 
     private Endereco endereco = new Endereco();
 
@@ -25,7 +30,7 @@ public class EnderecoBean {
 
     public String editarEndereco(Endereco endereco) {
         if (endereco != null) {
-            this.endereco = endereco;
+            this.setEndereco(endereco);
             return "cadastroEndereco";
         } else {
             return null;
@@ -34,6 +39,10 @@ public class EnderecoBean {
 
     public void salvarEndereco() {
         try {
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_INFO, endereco.toString(), null));
+            
+            
             ejb.create(endereco);
             String message = "Endereço adicionado com sucesso!";
             FacesContext.getCurrentInstance().addMessage(null,

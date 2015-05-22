@@ -8,6 +8,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpSession;
 
 @ManagedBean
 public class ClienteBean {
@@ -61,5 +62,21 @@ public class ClienteBean {
 
     public void clear() {
         cliente = new Cliente();
+    }
+
+    public String editarCliente() {
+        FacesContext fc = FacesContext.getCurrentInstance();
+        HttpSession session = (HttpSession) fc.getExternalContext().getSession(true);
+        cliente = (Cliente) session.getAttribute("USER");
+        if (cliente != null) {
+            if (cliente.getCnpj() != null) {
+                this.cliente = cliente;
+                return "cadastroClienteJuridico";
+            } else {
+                return "cadastroClienteFisico";
+            }
+        } else {
+            return null;
+        }
     }
 }

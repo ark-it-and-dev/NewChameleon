@@ -8,6 +8,7 @@
 
     <ui:composition template="template.xhtml">
 
+
         <ui:define name="body">
             <h:form>
                 <p:accordionPanel multiple="true">
@@ -25,7 +26,7 @@
                                         </h:outputText>
                                     </h:panelGrid>
                                     <br />
-                                    <p:commandButton value="Adicionar no Carrinho" action="#{implementar}" style="border-radius: 10px; font-family: calibri" ajax="false"/>
+                                    <p:commandButton value="Adicionar no Carrinho" action="#{pedidoBean.addItem(5)}" style="border-radius: 10px; font-family: calibri" ajax="false"/>
                                 </td>
                             </tr>
                         </table>

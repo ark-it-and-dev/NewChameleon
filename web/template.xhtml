@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -20,11 +21,12 @@
         <h:outputStylesheet library="css" name="style.css"/>
         <h:form>
             <div id="main_container">
+
                 <div class="top_bar">
                     <div class="top_search">
                         <div class="search_text"><a href="#">Buscar Produto</a></div>
                         <h:inputText class="search_input"/>
-                        <input type="image" src="./../resources/./../resources/images/search.gif" class="search_bt"/>
+                        <input type="image" src="./../resources/./../resources/images/search.gif" class="search_bt" />
                     </div>
 
                     <div class="languages">
@@ -45,8 +47,7 @@
                         <div class="top_divider"><img src="./../resources/images/header_divider.png" alt="" title="" width="1" height="164" /></div>
                         <div class="oferta">
                             <div class="oferta_content">
-                                <h2><font color="white">Bem vindo ao site de compras da MilkWay !</font></h2>
-                                <h3><font color="white">Faça seu <a href="login.xhtml">Login</a> ou <a href="telaCadastro.xhtml">Cadastre-se</a></font></h3>
+                                <h2><font color="white">Bem vindo ao site de compras da MilkWay!</font></h2>
                                 <div class="oferta_details">
 
                                     <div class="oferta_title">
@@ -84,18 +85,31 @@
                             <li class="divider"></li>                   
                             <li><a href="compraSegura.xhtml" class="nav4">Compra Segura </a></li>
                             <li class="divider"></li>
-                            <li><a href="quemSomosNos.xhtml" class="nav5">Quem Somos</a></li>
+                            <li>
+                                <a href="quemSomosNos.xhtml" class="nav5">
+                                    <h:outputText value="Quem Somos"  rendered="#{USER==null}"/>
+                                    <h:outputText value="Editar Informações" rendered="#{USER!=null}"/>
+                                </a>
+                            </li>
                             <li class="divider"></li>
-                            <li><a href="login.xhtml" class="nav6">Login</a></li>
+                            <li>
+                                <a href="" class="nav6">
+                                    Bem vindo, 
+                                    <h:outputText value="visitante" rendered="#{USER==null}"/>
+                                    <h:outputText value="#{pedidoBean.cliente.nome}" rendered="#{USER!=null}"/>
+                                </a>                                
+                            </li>
                             <li class="divider"></li>    
+                            <li>
+                                <h:commandButton action="login" value="Login" rendered="#{USER==null}" style="font-family: calibri; margin: 3px" immediate="true"/>                               
+                                <h:commandButton action="#{loginBean.logout}" value="Logoff" rendered="#{USER!=null}" style=" font-family: calibri; margin: 3px" immediate="true"/>
+                                <h:commandButton action="#{clienteBean.editarCliente()}" value="Editar Dados" rendered="#{USER!=null}" style=" font-family: calibri; margin: 3px" immediate="true"/> 
+                            </li>
 
                         </ul>
 
                         <div class="right_menu_corner"></div>
-                    </div><!-- end of menu tab -->
-
-
-
+                    </div>
 
                     <div class="left_content">
                         <div class="title_box">Categorias</div>
@@ -103,20 +117,20 @@
                             <p:growl autoUpdate="false"/> 
                             <p:panelMenu>
                                 <p:submenu label="Biscoitos">
-                                    <p:menuitem value="Bolacha Cookies" icon="ui-icon-cart" action="bolachaCookies.xhtml"/>
-                                    <p:menuitem value="Bolachas de Céu Azul" icon="ui-icon-cart" action="bolachaCeuAzul.xhtml"/>
-                                    <p:menuitem value="Canudinhos MilkWay" icon="ui-icon-cart" action="bolachaCanudinho.xhtml"/> 
+                                    <p:menuitem value="Bolacha Cookies" icon="ui-icon-cart" action="bolachaCookies.xhtml" immediate="true"/>
+                                    <p:menuitem value="Bolachas de Céu Azul" icon="ui-icon-cart" action="bolachaCeuAzul.xhtml" immediate="true"/>
+                                    <p:menuitem value="Canudinhos MilkWay" icon="ui-icon-cart" action="bolachaCanudinho.xhtml" immediate="true"/> 
                                 </p:submenu>
                                 <p:submenu label="Chocolates">
-                                    <p:menuitem value="Chocolate Tradicional" icon="ui-icon-cart" action="chocolateTradicional.xhtml"/>
-                                    <p:menuitem value="Chocolate Céu Azul" icon="ui-icon-cart" action="chocolateCeuAzul.xhtml"/>
-                                    <p:menuitem value="Chocolate Caramelo" icon="ui-icon-cart" action="chocolateCaramelo.xhtml"/> 
+                                    <p:menuitem value="Chocolate Tradicional" icon="ui-icon-cart" action="chocolateTradicional.xhtml" immediate="true"/>
+                                    <p:menuitem value="Chocolate Céu Azul" icon="ui-icon-cart" action="chocolateCeuAzul.xhtml" immediate="true"/>
+                                    <p:menuitem value="Chocolate Caramelo" icon="ui-icon-cart" action="chocolateCaramelo.xhtml" immediate="true"/> 
                                 </p:submenu>
                                 <p:separator />
                                 <p:submenu label="Diversos" >
-                                    <p:menuitem value="Barra de cereais MilkWay"   icon="ui-icon-cart" action="cremeChocolate.xhtml"/>
-                                    <p:menuitem value="Sorvete MilkWay"   icon="ui-icon-cart" action="sorvete.xhtml"/>
-                                    <p:menuitem value="Creme de Chocolate MilkWay" icon="ui-icon-cart" action="cremeChocolate.xhtml"/>
+                                    <p:menuitem value="Barra de cereais MilkWay"   icon="ui-icon-cart" action="cereais.xhtml" immediate="true"/>
+                                    <p:menuitem value="Sorvete MilkWay"   icon="ui-icon-cart" action="sorvete.xhtml" immediate="true"/>
+                                    <p:menuitem value="Creme de Chocolate MilkWay" icon="ui-icon-cart" action="cremeChocolate.xhtml" immediate="true"/>
                                 </p:submenu>
                             </p:panelMenu>
                         </ul> 
@@ -135,15 +149,13 @@
                         <div class="shopping_cart">
                             <div class="cart_title">Carrinho</div>
                             <div class="cart_details">
-                                0 items <br />
+                                #{pedidoBean.carrinho.totalItens} items <br />
                                 <span class="border_cart"></span>
-                                Total: <span class="price">0$</span>
+                                Total: <span class="price">#{pedidoBean.carrinho.formatTotal()} R$</span>
                             </div>
 
                             <div class="cart_icon"><a href="carrinho.xhtml" title="header=[Checkout] body=[&nbsp;] fade=[on]"><img src="./../resources/images/shoppingcart.png" alt="" title="" width="48" height="48" border="0" /></a></div>
-
                         </div>
-
 
                         <div class="title_box">Ofertas Imperdiveis</div>  
                         <div class="border_box">
@@ -152,25 +164,15 @@
                             <div class="prod_price"><span class="reduce">16,00R$</span> <span class="price">15,00$</span></div>
                         </div>  
 
-
-
                         <div class="title_box">Oferta do Dia</div>
                         <div class="border_box">
                             <div class="product_title"><a href="chocolateCeuAzul.xhtml">Chocolate Céu Azul</a></div>
                             <div class="product_img"><a href="chocolateCeuAzul.xhtml"><img src="./../resources/images/chocolateCeuAzul.jpeg" alt="" title="" border="0" width="120" height="120"/></a></div>
                             <div class="prod_price"><span class="reduce">3,00R$</span> <span class="price">2,00$</span></div>
                         </div>        
-
                     </div>
-
-
                 </div>
-
-
-
                 <div class="footer">
-
-
                     <div class="left_footer">
                         <img src="./../resources/images/logo_novo.png" alt="" title="" width="170" height="49"/>
                     </div>

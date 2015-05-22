@@ -2,8 +2,11 @@ package Carrinho;
 
 //import br.com.ChameleonEJB.Model.Produto;
 
+import Model.Produto;
+
+
 public class ItemCarrinho {
-/*
+
     private final Produto produto;
     private int quantidade;
 
@@ -34,5 +37,5 @@ public class ItemCarrinho {
 
     public double getTotal() {
         return this.getQuantidade() * produto.getPreco().doubleValue();
-    }*/
+    }
 }

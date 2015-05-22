@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -76,7 +77,7 @@ public class Endereco implements Serializable {
     @Size(max = 250)
     @Column(name = "COMPLEMENTO")
     private String complemento;
-    @ManyToMany(mappedBy = "enderecoCollection")
+    @ManyToMany(mappedBy = "enderecoCollection", cascade = CascadeType.PERSIST)
     private Collection<Cliente> clienteCollection;
 
     public Endereco() {
@@ -191,7 +192,9 @@ public class Endereco implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.Endereco[ id=" + id + " ]";
+        return "Endereco{" + "id=" + id + ", logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade + ", uf=" + uf + ", cep=" + cep + ", complemento=" + complemento + ", clienteCollection=" + clienteCollection + '}';
     }
+
+    
 
 }
